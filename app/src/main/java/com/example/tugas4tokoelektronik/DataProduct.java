@@ -1,14 +1,14 @@
 package com.example.tugas4tokoelektronik;
 
 public class DataProduct {
-    String harga,merk,gambar,stok;
+    String hargajual,merk,foto,stok;
 
     public String getMerk() {
         return merk;
     }
 
     public String getGambar() {
-        return gambar;
+        return foto;
     }
 
     public String getStok() {
@@ -16,6 +16,6 @@ public class DataProduct {
     }
 
     public String getHarga() {
-        return harga;
+        return hargajual;
     }
 }

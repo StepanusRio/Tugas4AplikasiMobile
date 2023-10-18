@@ -2,6 +2,7 @@ package com.example.tugas4tokoelektronik;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String URL = "http://192.168.1.17/tokoelektronik/";
+    public static final String URL = "http://192.168.43.186/tokoelektronik/";
     private List<DataProduct> results = new ArrayList<>();
     private ProductAdapter viewAdapter;
     RecyclerView recyclerView;
@@ -29,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         viewAdapter = new ProductAdapter(this,results);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView = (RecyclerView) findViewById(R.id.rvProductList);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(viewAdapter);
-
+        loadProduct();
     }
     private void loadProduct(){
         Retrofit retrofit = new Retrofit.Builder()
