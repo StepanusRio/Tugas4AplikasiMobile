@@ -12,6 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -42,7 +44,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.MerkProduct.setText(result.getMerk());
         holder.HargaProduct.setText(result.getHarga());
         holder.StockProduct.setText(result.getStok());
-//        holder
+        Glide.with(holder.ImgProduct).load(MainActivity.URL+"img/"+result.foto).error(R.drawable.google).into(holder.ImgProduct);
     }
 
     @Override

@@ -19,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String URL = "http://192.168.43.186/tokoelektronik/";
+    public static final String URL = "http://192.168.1.16/tokoelektronik/";
     private List<DataProduct> results = new ArrayList<>();
     private ProductAdapter viewAdapter;
     RecyclerView recyclerView;
