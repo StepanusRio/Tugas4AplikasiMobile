@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFF0FC"
+    android:background="#E6E6F2"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,14 +14,14 @@
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/constraint1">
 
         <ImageView
             android:id="@+id/topBg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/top_background" />
@@ -33,7 +34,7 @@
             android:layout_marginTop="70dp"
             android:text="Hallo"
             android:textColor="#FFF"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,10 +46,21 @@
             android:layout_height="wrap_content"
             android:text="Stepanus Rio Defa Ardiantoro"
             android:textColor="#FFF"
-            android:textSize="18sp"
+            android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/tvUserNIM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIM: A12.2020.06337"
+            android:textColor="#FFF"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvUserName"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
             tools:ignore="HardcodedText" />
 
         <ImageView
@@ -64,15 +76,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="-30dp"
-            android:layout_marginEnd="15dp"
+            android:layout_height="580dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/white_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topBg" >
+            app:layout_constraintTop_toBottomOf="@+id/topBg">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvProductList"
@@ -80,7 +93,7 @@
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

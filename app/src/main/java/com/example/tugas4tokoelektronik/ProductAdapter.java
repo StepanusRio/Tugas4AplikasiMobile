@@ -12,6 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -19,6 +21,10 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
     private Context context;
     private List<DataProduct> results;
+
+    public ProductAdapter() {
+        super();
+    }
 
     public ProductAdapter(Context context, List<DataProduct> results) {
         this.context = context;
@@ -38,7 +44,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.MerkProduct.setText(result.getMerk());
         holder.HargaProduct.setText(result.getHarga());
         holder.StockProduct.setText(result.getStok());
-        holder.ImgProduct.setImageResource(Integer.parseInt(result.getGambar()));
+        Glide.with(holder.ImgProduct).load(MainActivity.URL+"img/"+result.foto).error(R.drawable.google).into(holder.ImgProduct);
     }
 
     @Override
@@ -55,9 +61,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             this.MerkProduct = (TextView) itemView.findViewById(R.id.MerkProduct);
-            HargaProduct = (TextView) itemView.findViewById(R.id.HargaProduct);
-            StockProduct = (TextView) itemView.findViewById(R.id.StockProduct);
-            ImgProduct = (ImageView) itemView.findViewById(R.id.imgProduct);
+            this.HargaProduct = (TextView) itemView.findViewById(R.id.HargaProduct);
+            this.StockProduct = (TextView) itemView.findViewById(R.id.StockProduct);
+            this.ImgProduct = (ImageView) itemView.findViewById(R.id.imgProduct);
             this.layout = (ConstraintLayout) itemView.findViewById(R.id.cardView);
         }
     }
