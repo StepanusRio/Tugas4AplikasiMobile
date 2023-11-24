@@ -6,8 +6,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +23,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String URL = "http://192.168.1.16/tokoelektronik/";
+    public static final String URL = "http://192.168.1.12/tokoelektronik/";
     private List<DataProduct> results = new ArrayList<>();
     private ProductAdapter viewAdapter;
     RecyclerView recyclerView;
@@ -30,10 +34,18 @@ public class MainActivity extends AppCompatActivity {
         viewAdapter = new ProductAdapter(this,results);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView = (RecyclerView) findViewById(R.id.rvProductList);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(viewAdapter);
         loadProduct();
+        ImageButton viewCartBtn = findViewById(R.id.CartButton);
+        viewCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,CartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void loadProduct(){
         Retrofit retrofit = new Retrofit.Builder()
